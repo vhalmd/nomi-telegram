@@ -68,6 +68,10 @@ func startBot(ctx context.Context, client nomi.API, cfg BotConfig, prefix bool) 
 
 func handler(client nomi.API, cfg BotConfig, prefix bool) bot.HandlerFunc {
 	return func(ctx context.Context, b *bot.Bot, update *models.Update) {
+		if update.Message.Text == "/start" {
+			slog.Info(fmt.Sprintf("[%s] received /start command. Ignoring message...", strings.ToUpper(cfg.BotName)))
+			return
+		}
 		slog.Info(
 			fmt.Sprintf("[%s] received a new message. Repassing message to Nomi.", strings.ToUpper(cfg.BotName)),
 			"from", update.Message.Chat.Username,
