@@ -60,3 +60,9 @@ Note that there's a link `t.me/your_bot_username`, you can use that link to star
 ## Suggested Nomi Configurations
 
 You may wish to change your Nomi's communication style to `Texting`.
+
+---
+
+Built with:
+ - https://github.com/vhalmd/nomi-go-sdk
+ - https://github.com/go-telegram/bot
