@@ -25,9 +25,9 @@ func main() {
 		os.Exit(1)
 	}
 
-	telegramBotKey := os.Getenv("TELEGRAM_BOT_KEY")
+	telegramBotKey := os.Getenv("TELEGRAM_BOT_TOKEN")
 	if key == "" {
-		slog.Error("Telegram bot key not found. Set TELEGRAM_BOT_KEY on the .env file")
+		slog.Error("Telegram bot key not found. Set TELEGRAM_BOT_TOKEN on the .env file")
 		os.Exit(1)
 	}
 
