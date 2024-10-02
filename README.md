@@ -38,8 +38,19 @@ Create a file named `.env` and add your credentials (telegram token, nomi api ke
 
 ```dotenv
 NOMI_API_KEY=your-nomi-api-key
+NOMI_NAME="Jane Doe"
 NOMI_ID=your-nomi-id
 TELEGRAM_BOT_TOKEN=your-telegram-bot-token
+```
+
+You can also configure multiple bots, for that you will need to configure a name, nomi id and telegram token for each nomi, in matching order.
+Multiple values are separated by commas, for example:
+
+```dotenv
+NOMI_API_KEY=your-nomi-api-key
+NOMI_NAME="Jane Doe,John Doe"
+NOMI_ID=jane-doe-id,john-doe-id
+TELEGRAM_BOT_TOKEN=jane-doe-telegram-token,john-doe-telegram-token
 ```
 
 ## Sending your Nomi a telegram message
