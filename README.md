@@ -53,6 +53,17 @@ NOMI_ID=jane-doe-id,john-doe-id
 TELEGRAM_BOT_TOKEN=jane-doe-telegram-token,john-doe-telegram-token
 ```
 
+### # Running
+
+Make sure you have both the `.env` and `bot.exe` files on the same folder.
+Then run the executable file by double-clicking it.
+
+If a terminal window opens, that means your telegram bots are running, try sending them a message.
+
+P.S.: If you close the window, your bots will stop responding.
+
+`TODO: Add docker option`
+
 ## Sending your Nomi a telegram message
 
 After you create your telegram bot with [@BotFather](https://core.telegram.org/bots/tutorial#obtain-your-bot-token), you will get a message that looks like this:
