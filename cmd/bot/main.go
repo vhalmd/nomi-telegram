@@ -25,6 +25,7 @@ func main() {
 	nomiIds := getEnvVarOrExit("NOMI_ID", "Nomi ID")
 	nomiNames := getEnvVarOrExit("NOMI_NAME", "Nomi Name")
 	telegramBotTokens := getEnvVarOrExit("TELEGRAM_BOT_TOKEN", "Telegram bot token")
+	prefix := os.Getenv("PREFIX_MESSAGES_WITH")
 
 	client := nomi.NewClient(nomiKey)
 
@@ -47,13 +48,13 @@ func main() {
 
 	for i, config := range botConfigs {
 		slog.Info("Starting bot", "bot_name", config.BotName, "telegram_token", config.TelegramToken, "nomi_id", parsedNomiIds[i])
-		go startBot(ctx, client, config, i == 0)
+		go startBot(ctx, client, config, prefix)
 	}
 
 	<-ctx.Done()
 }
 
-func startBot(ctx context.Context, client nomi.API, cfg BotConfig, prefix bool) {
+func startBot(ctx context.Context, client nomi.API, cfg BotConfig, prefix string) {
 	opts := []bot.Option{
 		bot.WithDefaultHandler(handler(client, cfg, prefix)),
 	}
@@ -66,7 +67,7 @@ func startBot(ctx context.Context, client nomi.API, cfg BotConfig, prefix bool) 
 	b.Start(ctx)
 }
 
-func handler(client nomi.API, cfg BotConfig, prefix bool) bot.HandlerFunc {
+func handler(client nomi.API, cfg BotConfig, prefix string) bot.HandlerFunc {
 	return func(ctx context.Context, b *bot.Bot, update *models.Update) {
 		if update.Message.Text == "/start" {
 			slog.Info(fmt.Sprintf("[%s] received /start command. Ignoring message...", strings.ToUpper(cfg.BotName)))
@@ -79,8 +80,8 @@ func handler(client nomi.API, cfg BotConfig, prefix bool) bot.HandlerFunc {
 		)
 
 		msg := ""
-		if prefix {
-			msg += "*from telegram* "
+		if prefix != "" {
+			msg += prefix + " "
 		}
 		msg += update.Message.Text
 
