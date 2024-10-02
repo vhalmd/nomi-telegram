@@ -15,7 +15,7 @@ Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci cum eaque eli
 
 #### Download binary 
 
-You can download the executable `bot.exe` directly from the [releases](http://todo.example)
+You can download the executable `bot.exe` directly from the [releases](https://github.com/vhalmd/nomi-telegram/releases/latest)
 
 #### Build from source
 
