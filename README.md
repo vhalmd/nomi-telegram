@@ -41,33 +41,7 @@ NOMI_API_KEY=your-nomi-api-key
 NOMI_NAME="Jane Doe"
 NOMI_ID=your-nomi-id
 TELEGRAM_BOT_TOKEN=your-telegram-bot-token
-PREFIX_MESSAGES_WITH=
 ```
-
-You can also configure multiple bots, for that you will need to configure a name, nomi id and telegram token for each nomi, in matching order.
-Multiple values are separated by commas, for example:
-
-```dotenv
-NOMI_API_KEY=your-nomi-api-key
-NOMI_NAME="Jane Doe,John Doe"
-NOMI_ID=jane-doe-id,john-doe-id
-TELEGRAM_BOT_TOKEN=jane-doe-telegram-token,john-doe-telegram-token
-PREFIX_MESSAGES_WITH=
-```
-
-You can define a prefix for the messages that will be sent to your nomi if you want to add more context to your messages. For example:
-
-obs.: surround the prefix you want with double quotes, and don't use double quotes on the prefix itself to avoid any problems.
-
-```dotenv
-PREFIX_MESSAGES_WITH="*sent from telegram*"
-```
-
-By doing that, every time you send a message to your telegram bot, your nomi will receive that same message with that prefix.
-
-you -> telegram bot: Hello
-
-telegram bot -> your nomi: \*sent from telegram\* Hello
 
 ### # Running
 
